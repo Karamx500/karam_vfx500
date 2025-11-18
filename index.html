@@ -1154,9 +1154,9 @@
     <section class="home" id="home">
         <!-- Video Background -->
         <iframe class="video-background" 
-                src="https://player.vimeo.com/video/1127914718?background=1&autoplay=1&loop=1&muted=1" 
+                src="https://www.youtube.com/embed/O9uaQoaC3ig?autoplay=1&mute=1&loop=1&playlist=O9uaQoaC3ig&controls=0&showinfo=0&rel=0&modestbranding=1" 
                 frameborder="0" 
-                allow="autoplay; fullscreen" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
         </iframe>
         
@@ -1278,6 +1278,22 @@
         <p class="home-content p">Actual projects that delivered real performance improvements</p>
         
         <div class="portfolio-container">
+            <!-- NEW: Featured Video Added to Portfolio -->
+            <div class="portfolio-box">
+                <iframe class="youtube-video" 
+                        src="https://www.youtube.com/embed/O9uaQoaC3ig?autoplay=1&mute=1&loop=1&playlist=O9uaQoaC3ig" 
+                        title="Featured YouTube Short - Karam VFX"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <div class="portfolio-layer">
+                    <h4>Featured YouTube Short</h4>
+                    <p>High-impact short form content engineered for maximum engagement</p>
+                    <a href="https://youtube.com/shorts/O9uaQoaC3ig" class="btn btn-outline" target="_blank">WATCH FULL VIDEO</a>
+                </div>
+            </div>
+
             <!-- Project 1 -->
             <div class="portfolio-box">
                 <iframe class="youtube-video" 
@@ -1901,8 +1917,9 @@
             }
         });
 
-        // Video rotation for homepage background
+        // Video rotation for homepage background - NOW STARTS WITH THE REQUESTED VIDEO FIRST
         const videos = [
+            'https://www.youtube.com/embed/O9uaQoaC3ig?autoplay=1&mute=1&loop=1&playlist=O9uaQoaC3ig&controls=0&showinfo=0&rel=0&modestbranding=1',
             'https://player.vimeo.com/video/1127914718?background=1&autoplay=1&loop=1&muted=1',
             'https://player.vimeo.com/video/1127962480?background=1&autoplay=1&loop=1&muted=1',
             'https://player.vimeo.com/video/1127963051?background=1&autoplay=1&loop=1&muted=1'
