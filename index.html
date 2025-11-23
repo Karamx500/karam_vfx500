@@ -1014,6 +1014,44 @@
             color: var(--text);
         }
 
+        /* ===== Modal للصورة الكبيرة ===== */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 2%;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(229, 9, 20, 0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
         /* ===== Responsive Design ===== */
         @media (max-width: 1200px) {
             html {
@@ -1229,7 +1267,8 @@
             <p class="home-content p">This is what performance looks like when content is engineered for the algorithm</p>
             
             <div class="analytics-image-container" onclick="openImageModal()">
-                <img src="https://i.ibb.co/twLBDK44/image.png" alt="YouTube Analytics Dashboard" class="analytics-image">
+                <!-- Updated image link -->
+                <img src="https://i.ibb.co/jv48L69s/image.png" alt="YouTube Analytics Dashboard" class="analytics-image">
                 <div class="analytics-overlay">
                     <h3 style="color: white; margin-bottom: 1rem;">Real YouTube Analytics Dashboard</h3>
                     <p style="color: #cccccc; font-size: 1.4rem;">Actual performance metrics from channels I've worked with</p>
@@ -1237,11 +1276,12 @@
             </div>
             
             <div class="analytics-stats">
+                <!-- Updated statistics based on the new image -->
                 <div class="analytics-stat">
                     <div class="stat-icon">
                         <i class="fas fa-eye"></i>
                     </div>
-                    <div class="stat-value">198,725</div>
+                    <div class="stat-value">1.2M</div>
                     <div class="stat-label">Views in Last 28 Days</div>
                 </div>
                 
@@ -1249,7 +1289,7 @@
                     <div class="stat-icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <div class="stat-value">1.2K</div>
+                    <div class="stat-value">28.9K</div>
                     <div class="stat-label">Watch Time (Hours)</div>
                 </div>
                 
@@ -1257,7 +1297,7 @@
                     <div class="stat-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <div class="stat-value">+178</div>
+                    <div class="stat-value">+3.8K</div>
                     <div class="stat-label">New Subscribers</div>
                 </div>
                 
@@ -1265,7 +1305,7 @@
                     <div class="stat-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="stat-value">+99%</div>
+                    <div class="stat-value">+215%</div>
                     <div class="stat-label">Growth from Previous Period</div>
                 </div>
             </div>
@@ -1881,6 +1921,12 @@
         </div>
     </footer>
 
+    <!-- Modal for enlarged image -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modalImage" src="https://i.ibb.co/jv48L69s/image.png" alt="YouTube Analytics Dashboard">
+    </div>
+
     <script>
         // Initialize Particles.js for main background
         particlesJS('particles-js', {
@@ -1917,7 +1963,7 @@
             }
         });
 
-        // Video rotation for homepage background - NOW STARTS WITH THE REQUESTED VIDEO FIRST
+        // Video rotation for homepage background
         const videos = [
             'https://www.youtube.com/embed/O9uaQoaC3ig?autoplay=1&mute=1&loop=1&playlist=O9uaQoaC3ig&controls=0&showinfo=0&rel=0&modestbranding=1',
             'https://player.vimeo.com/video/1127914718?background=1&autoplay=1&loop=1&muted=1',
@@ -1969,8 +2015,19 @@
 
         // Image Modal Functions
         function openImageModal() {
-            // In a real implementation, this would open a modal with the full-size image
-            alert("Viewing analytics dashboard - This shows actual performance metrics from channels I've worked with");
+            document.getElementById('imageModal').style.display = 'block';
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeImageModal();
+            }
         }
 
         // Disabled button handler
